@@ -1,0 +1,66 @@
+/* RETRIVO — DESIGN SYSTEM TOKENS
+   Editorial Modernism × Tactile Print × Warm Technology */
+
+:root {
+  /* Brand Palette */
+  --color-forest: #203B36;
+  --color-marigold: #E9A15B;
+  --color-terracotta: #D97762;
+
+  /* Backgrounds & Surfaces */
+  --color-ivory: #F5F0E6;
+  --color-surface: #FFFEFA;
+  --color-sage: #DCE6D9;
+
+  /* Typography Colors */
+  --color-text: #252B28;
+  --color-muted: #6B726A;
+
+  /* Borders & Dividers */
+  --color-border: #DCD6C9;
+  --color-border-dark: #203B36;
+  --color-border-subtle: #E8E3D8;
+
+  /* Semantic Feedback */
+  --color-success: #43836A;
+  --color-error: #B94D4D;
+  --color-warning: #D9822B;
+  --color-info: #355E57;
+
+  /* Functional Accents */
+  --color-forest-dark: #132421;
+  --color-forest-light: #2c4f48;
+  --color-forest-surface: rgba(32, 59, 54, 0.08);
+  --color-marigold-hover: #dc9248;
+  --color-marigold-light: rgba(233, 161, 91, 0.18);
+  --color-terracotta-light: rgba(217, 119, 98, 0.16);
+  --color-sage-light: rgba(220, 230, 217, 0.6);
+
+  /* Typography Stacks */
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Tactile Editorial Shadows (Replacing soft generic SaaS shadows) */
+  --shadow-flat: 3px 3px 0px var(--color-forest);
+  --shadow-flat-sm: 2px 2px 0px var(--color-forest);
+  --shadow-flat-marigold: 3px 3px 0px var(--color-marigold);
+  --shadow-flat-terracotta: 3px 3px 0px var(--color-terracotta);
+  --shadow-subtle: 2px 2px 0px rgba(32, 59, 54, 0.15);
+  --shadow-paper: 0 1px 3px rgba(32, 43, 40, 0.06), 0 8px 24px rgba(32, 43, 40, 0.05);
+
+  /* Radius (Deliberate tactile corners) */
+  --radius-xs: 3px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-snappy: 120ms cubic-bezier(0, 0, 0.2, 1);
+  --transition-normal: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --container-max: 1260px;
+  --header-height: 74px;
+}
