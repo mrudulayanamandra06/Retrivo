@@ -154,6 +154,8 @@ npm run build
 
 **Deployment note:** a deployed static site still uses each visitor's own browser storage. Data is not shared between visitors or devices.
 
+ ## live demo link: https://retrivooo.netlify.app/
+
 ## Security reporting
 
 See [SECURITY.md](SECURITY.md). This browser-only prototype is not intended for real personal or sensitive information.
