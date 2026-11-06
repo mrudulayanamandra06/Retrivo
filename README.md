@@ -145,10 +145,10 @@ npm run build
 
 `npm test` runs the matching-engine and starter-data integrity checks. `npm run build` verifies the production frontend bundle.
 
-## Deploy to Vercel
+## Deploy to Netlify
 
 1. Push the repository to GitHub.
-2. Import the repository into Vercel and select the Vite framework preset.
+2. Import the repository into Netlify and select the Vite framework preset.
 3. Deploy. No environment variables or database credentials are required.
 4. `vercel.json` provides SPA route rewrites for direct links such as `/explore` and `/items/:id`.
 
