@@ -77,7 +77,7 @@ Retrivo uses browser `localStorage` for application data. No external database o
 Clone the repository:
 
 ```bash
-git clone https://github.com/nrudulayanamandra06/retrivo.git
+git clone https://github.com/mrudulayanamandra06/Retrivo.git
 cd retrivo
 ```
 
