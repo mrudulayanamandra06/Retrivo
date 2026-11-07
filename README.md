@@ -4,162 +4,179 @@
 
 [![React](https://img.shields.io/badge/React-18.3-61DAFB?logo=react&logoColor=black)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-6.1-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
-[![Storage](https://img.shields.io/badge/Storage-Browser%20localStorage-203B36)](#how-data-is-stored)
+[![Netlify](https://img.shields.io/badge/Deployed-Netlify-00C7B7?logo=netlify&logoColor=white)](https://www.netlify.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-203B36.svg)](LICENSE)
 
-Retrivo is a campus-focused lost-and-found web application for Indian colleges and universities. Students and campus staff can report lost or found belongings, discover possible matches, submit ownership claims, review claims and record safe handovers.
+**Live Application:** [retrivooo.netlify.app](https://retrivooo.netlify.app/)
 
-**Locale:** India (`en-IN`) · **Currency:** Indian Rupee (₹)
+## About
+
+Retrivo is a smart campus lost-and-found platform designed for colleges and universities in India. It provides a centralised space for students and campus staff to report, discover and recover misplaced belongings.
+
+The platform simplifies the recovery process through searchable listings, explainable smart matching and an ownership verification workflow.
 
 ## Features
 
-- Lost and found reports with category, description, date, campus location, distinguishing features and optional image.
-- Explore and filter reports by keyword, type, category and status.
-- Explainable smart matching using category, title, location, date and description signals.
-- Ownership claims with private verification details and a guided review workflow.
-- Claim review, approval/rejection and handover completion.
-- In-app notifications and activity history.
-- QR codes that link to item detail pages.
-- Student dashboard and campus moderation workspace.
-- Responsive interface and Indian campus sample data.
+- **Lost & Found Reporting:** Create reports with item details, descriptions, categories, locations and images.
+- **Explore & Search:** Browse and filter lost and found listings.
+- **Smart Matching:** Identify potentially related reports using category, title, location, date and description.
+- **Ownership Claims:** Submit claims with distinguishing details and track their review status.
+- **Claim Management:** Review, approve or reject claims and record item handovers.
+- **Notifications:** Receive updates about claims and item activity.
+- **QR Codes:** Generate QR codes linking to item detail pages.
+- **User Dashboard:** Manage reports, claims and recovery progress.
+- **Admin Workspace:** Review reports and manage platform activity.
 
-## Technology
+## Technology Stack
 
-| Layer | Technology |
+| Category | Technology |
 |---|---|
-| Frontend | React 18, Vite, JavaScript |
+| Frontend | React 18, JavaScript |
+| Build Tool | Vite 6 |
 | Routing | React Router DOM |
-| UI | Custom CSS design tokens, Lucide React |
-| Data persistence | Browser `localStorage` only |
-| Image persistence | Image data URLs in browser `localStorage` (1 MB upload limit) |
-| QR codes | `qrcode` |
-| Feedback | `canvas-confetti` |
+| Styling | Custom CSS |
+| Icons | Lucide React |
+| Data Storage | Browser localStorage |
+| QR Generation | qrcode |
+| Deployment | Netlify |
 
-**Retrivo does not connect to a database or external backend.** There is no Supabase, Firebase, PostgreSQL, API key, `.env` file or server setup required. All records are stored in the browser that is running the app.
+## Smart Matching
 
-## Design system
+Retrivo uses a weighted scoring model to identify potentially matching lost and found reports.
 
-- Forest Ink `#203B36`
-- Marigold `#E9A15B`
-- Warm Ivory `#F5F0E6`
-- Soft Sage `#DCE6D9`
-- Muted Terracotta `#D97762`
-- Headings: Space Grotesk · Body: Instrument Sans · Metadata: IBM Plex Mono
+| Matching Criteria | Weight |
+|---|---:|
+| Category | 25% |
+| Title similarity | 30% |
+| Location | 20% |
+| Date proximity | 15% |
+| Description and features | 10% |
 
-## How data is stored
+The system provides match scores and explanations to help users identify relevant reports. Matches are suggestions, not proof of ownership.
 
-Every functional module uses the same local browser storage layer (`src/services/storageService.js`). The application stores the following collections:
+## Data Storage
 
-| Module | localStorage key | Stored data |
-|---|---|---|
-| Accounts and profiles | `retrivo_users` | Names, email, department and role |
-| Login session | `retrivo_session` | Signed-in account for the current browser |
-| Lost and found reports | `retrivo_items` | Item details, report type, location, status and image data URL |
-| Smart match results | `retrivo_matches` | Matched item IDs, score, explanation and matched attributes |
-| Ownership claims | `retrivo_claims` | Claimant, proof description, private verification details, review and handover status |
-| Notifications | `retrivo_notifications` | Recipient, message, type, read state and related item/claim |
-| Activity history | `retrivo_activity` | Actor, action, entity, timestamp and metadata |
+Retrivo uses browser `localStorage` for application data. No external database or backend is required.
 
-QR codes, match calculations and dashboard statistics are generated in the frontend. Their related records, where needed, are saved in the local collections above; no separate database is used.
+| Module | Storage Key |
+|---|---|
+| User accounts | `retrivo_users` |
+| Login session | `retrivo_session` |
+| Item reports | `retrivo_items` |
+| Smart matches | `retrivo_matches` |
+| Ownership claims | `retrivo_claims` |
+| Notifications | `retrivo_notifications` |
+| Activity history | `retrivo_activity` |
 
-### Important limitations
+**Note:** Data is stored locally in the browser and is not synchronised between different devices or browsers. This implementation is intended as a functional prototype, not a production multi-user service. Avoid entering real personal or sensitive information.
 
-- Data is local to one browser profile and device. Another user on another device will not see the same reports or claims.
-- Clearing browser site data can erase locally stored accounts, reports and claims. Keep the same browser profile during a presentation.
-- Browser-only login is not production-grade authentication. Do not enter real passwords, student IDs, phone numbers or sensitive claim evidence.
-- This build is a self-contained hackathon prototype, not a production multi-user campus service.
+## Getting Started
 
-## Run locally
+**Prerequisites:** Node.js 18+ and npm.
 
-**Requirements:** Node.js 18+ and npm.
+Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/retrivo.git
+git clone https://github.com/nrudulayanamandra06/retrivo.git
 cd retrivo
+```
+
+Install dependencies:
+
+```bash
 npm install
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
-Open the local URL printed by Vite, normally `http://localhost:5173`.
+Open the local URL provided by Vite, normally `http://localhost:5173`.
 
-### Getting started
+## Sample Account
 
-You can create your own account from the registration page. Registration signs you in automatically.
+Use the **Fill sample login details** option on the Sign In page.
 
-For a quick guided walkthrough, open **Sign In** and select **Fill sample login details**. The fields will be populated for the sample student account:
+| Field | Value |
+|---|---|
+| Name | Lalli |
+| Email | `lalli@campus.ac.in` |
+| Password | `password123` |
 
-- **Name:** Lalli
-- **Email:** `lalli@campus.ac.in`
-- **Password:** `password123`
+The login details are populated automatically. Select Sign In to continue.
 
-Select **Sign In** yourself to continue. This is a convenience for judging and presentations; it does not automatically sign anyone in. The starter dataset includes example campus listings so the explore and matching flows are visible immediately.
-
-## Project structure
+## Project Structure
 
 ```text
 retrivo/
-├── public/                    # Favicon and static assets
+├── public/
 ├── src/
-│   ├── components/             # Claims, item cards, QR, navigation and shared UI
-│   ├── context/                # Authentication and toast contexts
-│   ├── lib/                    # Explicit database-disabled configuration
-│   ├── pages/                  # Home, Explore, reports, dashboards and claims
-│   ├── routes/                 # App routes and protected routes
-│   ├── services/               # Local auth, items, claims, matching, notifications and storage
-│   └── styles/                 # Design tokens and global styles
-├── .github/workflows/ci.yml   # GitHub Actions test + build check
+│   ├── components/
+│   ├── context/
+│   ├── lib/
+│   ├── pages/
+│   ├── routes/
+│   ├── services/
+│   └── styles/
+├── .github/
+│   └── workflows/
+├── LICENSE
 ├── SECURITY.md
 ├── package.json
-├── test-runner.js
 └── README.md
 ```
 
-## Hackathon presentation walkthrough
+## Testing
 
-A clear judging flow can be completed in one browser because the prototype stores all records in that browser:
-
-1. Register **Student A** and report a found item.
-2. Sign out, register **Student B**, and explore the item listing.
-3. Submit an ownership claim with distinguishing details.
-4. Sign back in as Student A and review the incoming claim from the item details page.
-5. Approve the claim and complete the handover workflow.
-6. Show the notification, activity history and updated recovery status.
-
-Use fictional names and item details during judging. The application does not synchronize data between separate browsers or devices.
-
-## Smart matching model
-
-```text
-Total = Category (25) + Title similarity (30) + Location (20)
-      + Date proximity (15) + Description/features (10)
-```
-
-A score is a lead for human review, not proof of ownership. Claim review and physical handover remain separate steps.
-
-## Quality checks
+Run the test suite:
 
 ```bash
 npm test
+```
+
+Create a production build:
+
+```bash
 npm run build
 ```
 
-`npm test` runs the matching-engine and starter-data integrity checks. `npm run build` verifies the production frontend bundle.
+## Deployment
 
-## Deploy to Netlify
+Retrivo is deployed on Netlify.
 
-1. Push the repository to GitHub.
-2. Import the repository into Netlify and select the Vite framework preset.
-3. Deploy. No environment variables or database credentials are required.
-4. `vercel.json` provides SPA route rewrites for direct links such as `/explore` and `/items/:id`.
+**Live URL:** https://retrivooo.netlify.app/
 
-**Deployment note:** a deployed static site still uses each visitor's own browser storage. Data is not shared between visitors or devices.
+| Configuration | Value |
+|---|---|
+| Build command | `npm run build` |
+| Publish directory | `dist` |
+| Environment variables | Not required |
 
- ## live demo link: https://retrivooo.netlify.app/
+For React Router direct navigation, include this in `public/_redirects`:
 
-## Security reporting
+```text
+/* /index.html 200
+```
 
-See [SECURITY.md](SECURITY.md). This browser-only prototype is not intended for real personal or sensitive information.
+## Future Enhancements
+
+- Shared cloud database and multi-device synchronisation.
+- Secure authentication and role-based access control.
+- Real-time notifications.
+- Advanced matching techniques.
+- Improved image storage.
+- Campus-level analytics and moderation.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+<p align="center">
+
+**Retrivo — Find it. Verify it. Retrieve it.**
+
+</p>
